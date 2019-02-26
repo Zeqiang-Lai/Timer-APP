@@ -763,6 +763,17 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQC-ww-PWT">
+                                <rect key="frame" x="2" y="87" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="circular" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" inset="2" id="HwJ-4y-g1V">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeButtonClicked:" target="XfG-lQ-9wD" id="ryP-Np-zI9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dFn-y2-eEC" secondAttribute="trailing" constant="20" id="Tct-UL-qWz"/>
@@ -780,4 +791,7 @@
             <point key="canvasLocation" x="75" y="654.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+    </resources>
 </document>

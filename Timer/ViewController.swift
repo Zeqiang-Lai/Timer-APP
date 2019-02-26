@@ -19,8 +19,17 @@ class ViewController: NSViewController {
     
     private var api = TimerAPI.shared
     
+    override func viewWillAppear() {
+        let styleMask: NSWindow.StyleMask = [.titled, .fullSizeContentView]
+        self.view.window?.animator().styleMask = styleMask
+    }
+    
     override func viewDidLoad() {
         api.delegate = self
+    }
+    
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        NSApplication.shared.terminate(self)
     }
     
     @IBAction func leftButtonClicked(_ sender: Any) {
