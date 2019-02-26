@@ -2,7 +2,7 @@
 
 A Simper Stopwatch App for macOS.
 
-![image-20190226195212060](img/image-20190226195212060.png)
+<img src="img/image-20190226195212060.png" alt="Preview" width="600"/>
 
 ## Change Log
 
@@ -14,5 +14,5 @@ A Simper Stopwatch App for macOS.
 
 You can download it from release page or click te link below:
 
-[Latest version]().
+[Latest version](https://github.com/Zeqiang-Lai/Timer-APP/releases/latest).
 
