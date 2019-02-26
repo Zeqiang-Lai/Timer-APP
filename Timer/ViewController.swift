@@ -10,18 +10,15 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var timeLabel: NSTextField!
+    @IBOutlet weak var triggerButton: NSButton!
+    
+    @IBAction func triggerButtonClicked(_ sender: Any) {
+        
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    @IBAction func countButtonClicked(_ sender: Any) {
+        
     }
-
-
 }
 
