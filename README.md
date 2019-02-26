@@ -2,7 +2,7 @@
 
 A Simper Stopwatch App for macOS.
 
-<img src="img/preivew1.0.png" alt="Preview" width="500"/>
+<img src="img/preview11.png" alt="Preview" width="300"/>
 
 ## Change Log
 
