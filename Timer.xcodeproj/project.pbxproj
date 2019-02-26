@@ -11,6 +11,8 @@
 		466456FB222532EB0080D3E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466456FA222532EB0080D3E9 /* ViewController.swift */; };
 		466456FD222532EC0080D3E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466456FC222532EC0080D3E9 /* Assets.xcassets */; };
 		46645700222532EC0080D3E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466456FE222532EC0080D3E9 /* Main.storyboard */; };
+		46645709222535C10080D3E9 /* TimerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46645708222535C10080D3E9 /* TimerAPI.swift */; };
+		4664570B2225389F0080D3E9 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4664570A2225389F0080D3E9 /* Int+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		466456FF222532EC0080D3E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46645701222532EC0080D3E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46645702222532EC0080D3E9 /* Timer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timer.entitlements; sourceTree = "<group>"; };
+		46645708222535C10080D3E9 /* TimerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAPI.swift; sourceTree = "<group>"; };
+		4664570A2225389F0080D3E9 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				466456FE222532EC0080D3E9 /* Main.storyboard */,
 				46645701222532EC0080D3E9 /* Info.plist */,
 				46645702222532EC0080D3E9 /* Timer.entitlements */,
+				46645708222535C10080D3E9 /* TimerAPI.swift */,
+				4664570A2225389F0080D3E9 /* Int+.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -134,7 +140,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				466456FB222532EB0080D3E9 /* ViewController.swift in Sources */,
+				46645709222535C10080D3E9 /* TimerAPI.swift in Sources */,
 				466456F9222532EB0080D3E9 /* AppDelegate.swift in Sources */,
+				4664570B2225389F0080D3E9 /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
