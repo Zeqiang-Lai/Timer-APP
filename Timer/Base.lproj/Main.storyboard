@@ -709,35 +709,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="218" height="109"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFn-y2-eEC">
-                                <rect key="frame" x="25" y="20" width="173" height="69"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFn-y2-eEC">
+                                <rect key="frame" x="20" y="20" width="178" height="69"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-2F-sLw">
-                                        <rect key="frame" x="-2" y="26" width="177" height="43"/>
+                                        <rect key="frame" x="1" y="26" width="177" height="43"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00.00" id="K5F-O1-nBt">
                                             <font key="font" size="35" name="Courier"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="28" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvn-P7-dyb">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="21"/>
+                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="lvn-P7-dyb">
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="18"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f4l-XJ-gbX">
-                                                <rect key="frame" x="-6" y="-7" width="87" height="32"/>
-                                                <buttonCell key="cell" type="push" title="COUNT" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6ef-LT-DnK">
+                                                <rect key="frame" x="0.0" y="-1" width="79" height="19"/>
+                                                <buttonCell key="cell" type="roundRect" title="COUNT" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6ef-LT-DnK">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="cellTitle"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="leftButtonClicked:" target="XfG-lQ-9wD" id="l7Q-o6-TcF"/>
                                                 </connections>
                                             </button>
                                             <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7MD-tZ-GWw">
-                                                <rect key="frame" x="97" y="-7" width="81" height="32"/>
-                                                <buttonCell key="cell" type="push" title="START" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="knj-XE-tRT">
+                                                <rect key="frame" x="99" y="-1" width="79" height="19"/>
+                                                <buttonCell key="cell" type="roundRect" title="START" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="knj-XE-tRT">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="cellTitle"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="rightButtonClicked:" target="XfG-lQ-9wD" id="VNi-3i-Cz5"/>
@@ -754,6 +754,10 @@
                                         </customSpacing>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="lvn-P7-dyb" firstAttribute="leading" secondItem="dFn-y2-eEC" secondAttribute="leading" id="bxy-7Q-r1h"/>
+                                    <constraint firstAttribute="trailing" secondItem="lvn-P7-dyb" secondAttribute="trailing" id="nMb-N4-LtK"/>
+                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -776,8 +780,10 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="dFn-y2-eEC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="NXp-44-fcR"/>
+                            <constraint firstItem="dFn-y2-eEC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="RLf-IH-4EB"/>
                             <constraint firstAttribute="trailing" secondItem="dFn-y2-eEC" secondAttribute="trailing" constant="20" id="Tct-UL-qWz"/>
-                            <constraint firstAttribute="bottom" secondItem="dFn-y2-eEC" secondAttribute="bottom" constant="20" id="zTw-S8-eQu"/>
+                            <constraint firstAttribute="bottom" secondItem="dFn-y2-eEC" secondAttribute="bottom" constant="20" id="ZXU-V2-OPk"/>
                         </constraints>
                     </view>
                     <connections>
