@@ -2,13 +2,17 @@
 
 A Simper Stopwatch App for macOS.
 
-<img src="img/image-20190226195212060.png" alt="Preview" width="600"/>
+<img src="img/preivew1.0.png" alt="Preview" width="500"/>
 
 ## Change Log
 
 **Timer 1.0**
 
-- Basic function of stopwatch
+- Basic function of stopwatch.
+
+**Timer 1.1**
+
+- UI Improvement.
 
 ## Download
 
