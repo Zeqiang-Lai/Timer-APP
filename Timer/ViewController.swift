@@ -87,15 +87,6 @@ class ViewController: NSViewController {
     }
 }
 
-extension ViewController {
-    private enum BtnState {
-        case start
-        case stop
-        case count
-        case reset
-    }
-}
-
 extension ViewController: TimerAPIDelegate {
     func tickHandler(timePast: Int) {
         self.timeLabel.stringValue = timePast.toFormatedTimeString()
