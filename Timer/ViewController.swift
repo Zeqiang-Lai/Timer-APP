@@ -10,12 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
     
+    private let countListHeight : CGFloat = 131
+    
     @IBOutlet weak var timeLabel: NSTextField!
     @IBOutlet weak var leftButton: NSButton!
     @IBOutlet weak var rightButton: NSButton!
-    
-    private var leftBtnState = BtnState.count
-    private var rightBtnState = BtnState.start
+    @IBOutlet weak var countListButton: NSButton!
     
     private var api = TimerAPI.shared
     
@@ -28,28 +28,44 @@ class ViewController: NSViewController {
         api.delegate = self
     }
     
+    @IBAction func countListButtonClicked(_ sender: Any) {
+        if let window = self.view.window {
+            var frame : NSRect
+            if countListButton.state == .on {
+                // show count list
+                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y - countListHeight)
+                let size = CGSize(width: window.frame.size.width, height: window.frame.size.height + countListHeight)
+                frame = NSRect(origin: origin, size: size)
+            } else {
+                // hide count list
+                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y + countListHeight)
+                let size = CGSize(width: window.frame.size.width, height: window.frame.size.height - countListHeight)
+                frame = NSRect(origin: origin, size: size)
+            }
+            window.setFrame(frame, display: true, animate: true)
+        }
+    }
+    
     @IBAction func closeButtonClicked(_ sender: Any) {
         NSApplication.shared.terminate(self)
     }
     
     @IBAction func leftButtonClicked(_ sender: Any) {
-        if leftBtnState == .count {
+        if leftButton.state == .on {
             api.count()
-        } else if leftBtnState == .reset{
+        } else {
             api.reset()
         }
     }
     
     @IBAction func rightButtonClicked(_ sender: Any) {
         print("START Button Clicked")
-        if rightBtnState == .start {
+        if rightButton.state == .on {
             api.start()
-            rightBtnState = .stop
-            leftBtnState = .count
-        } else if rightBtnState == .stop {
+            leftButton.state = .on
+        } else{
             api.stop()
-            rightBtnState = .start
-            leftBtnState = .reset
+            leftButton.state = .off
         }
         updateButtonUI()
     }
@@ -57,15 +73,15 @@ class ViewController: NSViewController {
     func updateButtonUI() {
         // TODO: shorten the code
         print("Update UI")
-        if rightBtnState == .start {
+        if rightButton.state == .off {
             rightButton.title = "START"
-        } else if rightBtnState == .stop {
+        } else {
             rightButton.title = "STOP"
         }
         
-        if leftBtnState == .count {
+        if leftButton.state == .off {
             leftButton.title = "COUNT"
-        } else if leftBtnState == .reset{
+        } else{
             leftButton.title = "RESET"
         }
     }
