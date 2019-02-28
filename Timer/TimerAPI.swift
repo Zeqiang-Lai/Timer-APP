@@ -25,6 +25,8 @@ class TimerAPI {
     
     private var timePast : Int = 0
     
+    private var countList = [Int]()
+    
     // MARK: Methods
     
     public func start() {
@@ -48,7 +50,8 @@ class TimerAPI {
     }
     
     public func count() {
-        
+        countList.append(timePast)
+        print(timePast.toFormatedTimeString())
     }
     
     public func reset() {
@@ -56,6 +59,7 @@ class TimerAPI {
             countTimer.invalidate()
             countTimer = nil
             timePast = 0
+            countList = [Int]()
             delegate?.resetHandler()
         }
     }
