@@ -10,14 +10,20 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    private let countListHeight : CGFloat = 131
+    // MARK: Properties
     
     @IBOutlet weak var timeLabel: NSTextField!
     @IBOutlet weak var leftButton: NSButton!
     @IBOutlet weak var rightButton: NSButton!
     @IBOutlet weak var countListButton: NSButton!
+    @IBOutlet weak var countListTableView: NSTableView!
+    
+    private var leftBtnState = BtnState.count
+    private var rightBtnState = BtnState.start
     
     private var api = TimerAPI.shared
+    
+    // Mark: Methods
     
     override func viewWillAppear() {
         let styleMask: NSWindow.StyleMask = [.titled, .fullSizeContentView]
@@ -33,13 +39,15 @@ class ViewController: NSViewController {
             var frame : NSRect
             if countListButton.state == .on {
                 // show count list
-                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y - countListHeight)
-                let size = CGSize(width: window.frame.size.width, height: window.frame.size.height + countListHeight)
+                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y - Constant.countListHeight)
+                let size = CGSize(width: window.frame.size.width,
+                                  height: window.frame.size.height + Constant.countListHeight)
                 frame = NSRect(origin: origin, size: size)
             } else {
                 // hide count list
-                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y + countListHeight)
-                let size = CGSize(width: window.frame.size.width, height: window.frame.size.height - countListHeight)
+                let origin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y + Constant.countListHeight)
+                let size = CGSize(width: window.frame.size.width,
+                                  height: window.frame.size.height - Constant.countListHeight)
                 frame = NSRect(origin: origin, size: size)
             }
             window.setFrame(frame, display: true, animate: true)
@@ -51,39 +59,54 @@ class ViewController: NSViewController {
     }
     
     @IBAction func leftButtonClicked(_ sender: Any) {
-        if leftButton.state == .on {
+        if leftBtnState == .count {
             api.count()
-        } else {
+        } else if leftBtnState == .reset{
             api.reset()
         }
+        countListTableView.reloadData()
     }
     
     @IBAction func rightButtonClicked(_ sender: Any) {
-        print("START Button Clicked")
-        if rightButton.state == .on {
+        if rightBtnState == .start {
             api.start()
-            leftButton.state = .on
-        } else{
+            rightBtnState = .stop
+            leftBtnState = .count
+        } else if rightBtnState == .stop {
             api.stop()
-            leftButton.state = .off
+            rightBtnState = .start
+            leftBtnState = .reset
         }
         updateButtonUI()
     }
     
     func updateButtonUI() {
         // TODO: shorten the code
-        print("Update UI")
-        if rightButton.state == .off {
+        if rightBtnState == .start {
             rightButton.title = "START"
-        } else {
+        } else if rightBtnState == .stop {
             rightButton.title = "STOP"
         }
         
-        if leftButton.state == .off {
+        if leftBtnState == .count {
             leftButton.title = "COUNT"
-        } else{
+        } else if leftBtnState == .reset{
             leftButton.title = "RESET"
         }
+    }
+}
+
+extension ViewController {
+    private enum BtnState {
+        case start
+        case stop
+        case count
+        case reset
+    }
+
+    private struct Constant {
+        static let countListHeight : CGFloat = 131
+        static let countListCellIdentifer = NSUserInterfaceItemIdentifier(rawValue: "countListCell")
     }
 }
 
@@ -97,3 +120,17 @@ extension ViewController: TimerAPIDelegate {
     }
 }
 
+extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return api.countList.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let text = api.countList[row].toFormatedTimeString()
+        if let cell = tableView.makeView(withIdentifier: Constant.countListCellIdentifer, owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = text
+            return cell
+        }
+        return nil
+    }
+}

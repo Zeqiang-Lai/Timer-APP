@@ -793,11 +793,11 @@
                                 <rect key="frame" x="20" y="-111" width="178" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="CE8-fh-J7U">
-                                    <rect key="frame" x="1" y="0.0" width="176" height="109"/>
+                                    <rect key="frame" x="1" y="1" width="176" height="108"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="f5k-3T-YEG" viewBased="YES" id="oXS-hz-guK">
-                                            <rect key="frame" x="0.0" y="0.0" width="176" height="84"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="oXS-hz-guK">
+                                            <rect key="frame" x="0.0" y="0.0" width="176" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -816,14 +816,14 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="A2D-ko-Fza">
+                                                        <tableCellView identifier="countListCell" id="A2D-ko-Fza">
                                                             <rect key="frame" x="1" y="1" width="173" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cIQ-FH-Fck">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="173" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="zFG-NF-bbl">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="justified" title="Table View Cell" id="zFG-NF-bbl">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -837,6 +837,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="r5a-Xo-KsD"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="JRK-mj-pLc"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -849,10 +853,6 @@
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="f5k-3T-YEG">
-                                    <rect key="frame" x="0.0" y="0.0" width="176" height="25"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableHeaderView>
                             </scrollView>
                         </subviews>
                         <constraints>
@@ -864,6 +864,7 @@
                     </view>
                     <connections>
                         <outlet property="countListButton" destination="Npk-Bd-mhS" id="jwA-bb-6Ku"/>
+                        <outlet property="countListTableView" destination="oXS-hz-guK" id="7Ek-b0-wFp"/>
                         <outlet property="leftButton" destination="f4l-XJ-gbX" id="r6w-oA-KZi"/>
                         <outlet property="rightButton" destination="7MD-tZ-GWw" id="Ycv-5b-QNv"/>
                         <outlet property="timeLabel" destination="cC8-2F-sLw" id="sFC-Gd-z1s"/>
@@ -871,7 +872,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="720"/>
+            <point key="canvasLocation" x="75" y="785"/>
         </scene>
     </scenes>
     <resources>

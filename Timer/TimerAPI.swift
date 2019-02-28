@@ -25,7 +25,7 @@ class TimerAPI {
     
     private var timePast : Int = 0
     
-    private var countList = [Int]()
+    public private(set) var countList = [Int]()
     
     // MARK: Methods
     
