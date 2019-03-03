@@ -18,8 +18,6 @@ A Simper Stopwatch App for macOS.
 
 - Lap list support.
 
-<img src="img/lap_list.png" alt="laplist" width="300"/>
-
 ## Download
 
 You can download it from release page or click te link below:
