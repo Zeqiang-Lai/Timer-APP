@@ -18,7 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var countListButton: NSButton!
     @IBOutlet weak var countListTableView: NSTableView!
     
-    private var leftBtnState = BtnState.count
+    private var leftBtnState = BtnState.lap
     private var rightBtnState = BtnState.start
     
     private var api = TimerAPI.shared
@@ -59,7 +59,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func leftButtonClicked(_ sender: Any) {
-        if leftBtnState == .count {
+        if leftBtnState == .lap {
             api.count()
         } else if leftBtnState == .reset{
             api.reset()
@@ -71,7 +71,7 @@ class ViewController: NSViewController {
         if rightBtnState == .start {
             api.start()
             rightBtnState = .stop
-            leftBtnState = .count
+            leftBtnState = .lap
         } else if rightBtnState == .stop {
             api.stop()
             rightBtnState = .start
@@ -83,15 +83,15 @@ class ViewController: NSViewController {
     func updateButtonUI() {
         // TODO: shorten the code
         if rightBtnState == .start {
-            rightButton.title = "START"
+            rightButton.title = Localization.button.start
         } else if rightBtnState == .stop {
-            rightButton.title = "STOP"
+            rightButton.title = Localization.button.stop
         }
         
-        if leftBtnState == .count {
-            leftButton.title = "COUNT"
+        if leftBtnState == .lap {
+            leftButton.title = Localization.button.lap
         } else if leftBtnState == .reset{
-            leftButton.title = "RESET"
+            leftButton.title = Localization.button.reset
         }
     }
 }
@@ -100,13 +100,26 @@ extension ViewController {
     private enum BtnState {
         case start
         case stop
-        case count
+        case lap
         case reset
     }
 
     private struct Constant {
         static let countListHeight : CGFloat = 131
-        static let countListCellIdentifer = NSUserInterfaceItemIdentifier(rawValue: "countListCell")
+        static let countListCellTimeIdentifer = NSUserInterfaceItemIdentifier(rawValue: "countListTimeCell")
+        static let countListCellLapIdentifer = NSUserInterfaceItemIdentifier(rawValue: "countListLapCell")
+        static let lapColumnIdentifer = NSUserInterfaceItemIdentifier(rawValue: "lapColumn")
+        static let timeColumnIdentifer = NSUserInterfaceItemIdentifier(rawValue: "timeColumn")
+    }
+    
+    private struct Localization {
+        static let tableCellLap = "Lap"
+        struct button{
+            static let lap = "LAP"
+            static let reset = "RESET"
+            static let start = "START"
+            static let stop = "STOP"
+        }
     }
 }
 
@@ -127,10 +140,20 @@ extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let text = api.countList[row].toFormatedTimeString()
-        if let cell = tableView.makeView(withIdentifier: Constant.countListCellIdentifer, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
-            return cell
+        
+        if tableColumn?.identifier == Constant.lapColumnIdentifer {
+            if let cell = tableView.makeView(withIdentifier: Constant.countListCellLapIdentifer, owner: nil) as? NSTableCellView {
+                cell.textField?.stringValue = Localization.tableCellLap + " " + row.description
+                return cell
+            }
         }
+        else if tableColumn?.identifier == Constant.timeColumnIdentifer {
+            if let cell = tableView.makeView(withIdentifier: Constant.countListCellTimeIdentifer, owner: nil) as? NSTableCellView {
+                cell.textField?.stringValue = text
+                return cell
+            }
+        }
+
         return nil
     }
 }
