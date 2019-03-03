@@ -2,7 +2,7 @@
 
 A Simper Stopwatch App for macOS.
 
-<img src="img/preview11.png" alt="Preview" width="300"/>
+<img src="img/preview12.png" alt="Preview" width="300"/>
 
 ## Change Log
 
@@ -13,6 +13,12 @@ A Simper Stopwatch App for macOS.
 **Timer 1.1**
 
 - UI Improvement.
+
+**Timer 1.2**
+
+- Lap list support.
+
+<img src="img/lap_list.png" alt="laplist" width="300"/>
 
 ## Download
 
