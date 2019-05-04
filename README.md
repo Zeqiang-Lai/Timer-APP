@@ -1,6 +1,6 @@
 # Timer-APP
 
-A Simper Stopwatch App for macOS.
+A Simple Stopwatch App for macOS.
 
 <img src="img/preview12.png" alt="Preview" width="300"/>
 
