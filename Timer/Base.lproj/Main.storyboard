@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -619,7 +619,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -712,7 +712,7 @@
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFn-y2-eEC">
                                 <rect key="frame" x="20" y="20" width="178" height="69"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-2F-sLw">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="cC8-2F-sLw">
                                         <rect key="frame" x="1" y="26" width="177" height="43"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00.00" id="K5F-O1-nBt">
                                             <font key="font" size="35" name="Courier"/>
@@ -723,21 +723,28 @@
                                     <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="lvn-P7-dyb">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="18"/>
                                         <subviews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f4l-XJ-gbX">
+                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="f4l-XJ-gbX">
                                                 <rect key="frame" x="0.0" y="-1" width="79" height="19"/>
                                                 <buttonCell key="cell" type="roundRect" title="LAP" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6ef-LT-DnK">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="cellTitle"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+IA
+</string>
+                                                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="leftButtonClicked:" target="XfG-lQ-9wD" id="l7Q-o6-TcF"/>
                                                 </connections>
                                             </button>
-                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7MD-tZ-GWw">
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="7MD-tZ-GWw">
                                                 <rect key="frame" x="99" y="-1" width="79" height="19"/>
                                                 <buttonCell key="cell" type="roundRect" title="START" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="knj-XE-tRT">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="cellTitle"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+IA
+</string>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="rightButtonClicked:" target="XfG-lQ-9wD" id="VNi-3i-Cz5"/>
@@ -778,12 +785,14 @@
                                     <action selector="closeButtonClicked:" target="XfG-lQ-9wD" id="ryP-Np-zI9"/>
                                 </connections>
                             </button>
-                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Npk-Bd-mhS">
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="Npk-Bd-mhS">
                                 <rect key="frame" x="195" y="87" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="help" bezelStyle="helpButton" image="NSListViewTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="gMl-8Y-i0Y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">l</string>
+                                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="countListButtonClicked:" target="XfG-lQ-9wD" id="psi-2I-56p"/>
