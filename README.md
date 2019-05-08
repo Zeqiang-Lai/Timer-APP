@@ -6,7 +6,7 @@ A Simple Stopwatch App for macOS.
 
 ## Usage
 
-There are equvialent local keyboard shortcut for:
+There are equvialent keyboard shortcuts for:
 
 - LAP/RESET Button: `Alt` + `Space`
 - START/STOP Button: `Space`
