@@ -12,7 +12,9 @@ There are equvialent keyboard shortcuts for:
 - START/STOP Button: `Space`
 - List Button: `Alt` + `L`
 
-Note: If you are using alfred, there might be shortcut conflict. You can download Timer1.2 from (release)[https://github.com/Zeqiang-Lai/Timer-APP/releases], or you can change the shortcut from Xcode and compile it by yourself.
+Note: If you are using alfred, there might be shortcut conflict. You can:
+1. Download Timer1.2 from [release](https://github.com/Zeqiang-Lai/Timer-APP/releases).
+2. or Change the shortcut from Xcode and compile it by yourself.
 
 ## Download
 
